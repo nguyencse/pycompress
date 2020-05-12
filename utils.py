@@ -20,5 +20,7 @@ def get_all_png_paths(base_dir):
     for root, dirs, files in os.walk(base_dir):
         for file in files:
             if(file.endswith(".png")):
-                paths.append(os.path.join(root,file))
+                path = os.path.join(root,file)
+                if 'build' not in path:
+                    paths.append(path)
     return paths
