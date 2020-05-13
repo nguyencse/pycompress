@@ -10,17 +10,17 @@ def get_img_without_ext(img_path):
 def compress_image(src, dst):
     src_without_ext = get_img_without_ext(src)
     cmd = pngquant_path + ' ' + src + ' --force --ext ' + tmp_ext
-    print('processing ' + src + ' ...')
     os.system(cmd)
     os.replace(src_without_ext + tmp_ext, dst)
-    print('done!')
 
 def get_all_png_paths(base_dir):
     paths = []
+    sizes = []
     for root, dirs, files in os.walk(base_dir):
         for file in files:
             if(file.endswith(".png")):
                 path = os.path.join(root,file)
                 if 'build' not in path:
                     paths.append(path)
-    return paths
+                    sizes.append(os.path.getsize(path))
+    return paths, sizes
