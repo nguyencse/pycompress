@@ -38,4 +38,4 @@ if __name__ == "__main__":
     print('Total files: ' + str(len(fnames2)))
     print('Total size: ' + str(sum2) + 'KB')
     print('=====RESULT=====')
-    print('Saved ' + str((sum1 - sum2) / 1024) + 'KB')
+    print('Saved ' + str(sum1 - sum2) + 'KB')
