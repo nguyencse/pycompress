@@ -28,9 +28,14 @@ if __name__ == "__main__":
     fnames2 = filelist2[0]
     fsizes2 = filelist2[1]
 
+    sum1 = sum(fsizes) / 1024
+    sum2 = sum(fsizes2) / 1024
+
     print('=====BEFORE=====')
     print('Total files: ' + str(len(fnames)))
-    print('Total size: ' + str(sum(fsizes) / 1024))
+    print('Total size: ' + str(sum1) + 'KB')
     print('=====AFTER======')
-    print('Total files: ' + str(len(fnames)))
-    print('Total size: ' + str(sum(fsizes) / 1024))
+    print('Total files: ' + str(len(fnames2)))
+    print('Total size: ' + str(sum2) + 'KB')
+    print('=====RESULT=====')
+    print('Saved ' + str((sum1 - sum2) / 1024) + 'KB')
