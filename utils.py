@@ -1,4 +1,6 @@
 import os
+import sys
+
 os_name = 'windows'
 pngquant_path = 'bin\windows\pngquant.exe'
 tmp_ext = '-fs8.png'
@@ -24,3 +26,13 @@ def get_all_png_paths(base_dir):
                     paths.append(path)
                     sizes.append(os.path.getsize(path))
     return paths, sizes
+
+def progress(count, total, status=''):
+    bar_len = 60
+    filled_len = int(round(bar_len * count / float(total)))
+
+    percents = round(100.0 * count / float(total), 1)
+    bar = '=' * filled_len + '-' * (bar_len - filled_len)
+
+    sys.stdout.write('[%s] %s%s ...%s\r' % (bar, percents, '%', status))
+    sys.stdout.flush()
